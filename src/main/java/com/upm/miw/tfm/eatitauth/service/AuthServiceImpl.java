@@ -3,6 +3,7 @@ package com.upm.miw.tfm.eatitauth.service;
 import com.upm.miw.tfm.eatitauth.repository.UserRepository;
 import com.upm.miw.tfm.eatitauth.service.model.IntegrationUser;
 import org.jasypt.util.password.StrongPasswordEncryptor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -19,6 +20,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
+    @Cacheable("auths")
     public boolean authenticate(String username, String password) {
         Optional<IntegrationUser> user = this.userRepository.findByUsername(username);
         if(user.isEmpty()) {
