@@ -1,6 +1,7 @@
 package com.upm.miw.tfm.eatitauth.web;
 
 import com.upm.miw.tfm.eatitauth.service.AuthService;
+import com.upm.miw.tfm.eatitauth.service.model.IntegrationUser;
 import com.upm.miw.tfm.eatitauth.web.dto.AuthenticationDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class AuthController {
 
     @PostMapping
     public ResponseEntity<?> authenticate(@RequestBody @Valid AuthenticationDTO authenticationDTO) {
-        boolean authenticate = this.authService.authenticate(authenticationDTO.getUsername(), authenticationDTO.getPassword());
-        return ResponseEntity.ok().body(authenticate);
+        IntegrationUser user = this.authService.authenticate(authenticationDTO.getUsername(), authenticationDTO.getPassword());
+        return ResponseEntity.ok().body(user);
     }
 }
