@@ -1,0 +1,9 @@
+spring:
+  cache:
+    type: none
+  mongodb:
+    embedded:
+      version: 3.4.6
+
+server:
+  port: 8083
