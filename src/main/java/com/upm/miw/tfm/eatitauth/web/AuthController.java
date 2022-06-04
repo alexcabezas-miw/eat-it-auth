@@ -22,7 +22,7 @@ public class AuthController {
 
     @PostMapping
     public ResponseEntity<?> authenticate(@RequestBody @Valid AuthenticationDTO authenticationDTO) {
-        IntegrationUser user = this.authService.authenticate(authenticationDTO.getUsername(), authenticationDTO.getPassword());
-        return ResponseEntity.ok().body(user);
+        boolean authenticated = this.authService.authenticate(authenticationDTO.getUsername(), authenticationDTO.getPassword());
+        return ResponseEntity.ok().body(authenticated);
     }
 }

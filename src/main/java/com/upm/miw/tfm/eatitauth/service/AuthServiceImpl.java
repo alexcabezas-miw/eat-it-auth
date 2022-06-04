@@ -21,13 +21,8 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     @Cacheable("auths")
-    public IntegrationUser authenticate(String username, String password) {
+    public boolean authenticate(String username, String password) {
         Optional<IntegrationUser> user = this.userRepository.findByUsername(username);
-        if(user.isPresent()) {
-            if (encryptor.checkPassword(password, user.get().getPassword())) {
-                return user.get();
-            }
-        }
-        return null;
+        return user.filter(integrationUser -> encryptor.checkPassword(password, integrationUser.getPassword())).isPresent();
     }
 }
