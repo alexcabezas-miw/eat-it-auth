@@ -10,13 +10,14 @@
 	</parent>
 	<groupId>com.upm.miw.tfm</groupId>
 	<artifactId>eat-it-auth</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>eat-it-auth</name>
 	<description>Service to manage authentication in Eat It App</description>
 	<properties>
 		<java.version>11</java.version>
 		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
 		<spock.version>2.1-groovy-3.0</spock.version>
+		<jasypt.version>1.9.3</jasypt.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -47,6 +48,13 @@
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jasypt</groupId>
+			<artifactId>jasypt</artifactId>
+			<version>${jasypt.version}</version>
+			<scope>compile</scope>
 		</dependency>
 
 		<dependency>

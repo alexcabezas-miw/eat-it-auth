@@ -1,0 +1,1 @@
+web: java -jar -Dspring.profiles.active=prod target/eat-it-auth-1.0.0.jar -Djdk.tls.client.protocols=TLSv1.2
